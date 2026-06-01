@@ -10,7 +10,7 @@ This program interacts with the Linux file system using Python. It asks the user
 
 Functions used : 
 
-os.listdir() --> Used to retrieve all entries contained in a directory. --> os.listdir(directory)
-os.path.isfile() --> Used to verify that an entry is a file and not a subdirectory. --> os.path.isfile(file_path)
-os.stat() --> Used to obtain file metadata such as file size. --> os.stat(file_path)
-os.access() --> Used to check file permissions. --> os.access(file_path, os.R_OK)
+os.listdir() = Used to retrieve all entries contained in a directory. --> os.listdir(directory)
+os.path.isfile() = Used to verify that an entry is a file and not a subdirectory. --> os.path.isfile(file_path)
+os.stat() = Used to obtain file metadata such as file size. --> os.stat(file_path)
+os.access() = Used to check file permissions. --> os.access(file_path, os.R_OK)
