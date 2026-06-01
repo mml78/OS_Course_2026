@@ -1,10 +1,11 @@
 import threading
+import time
 
 # Shared global variable
 counter = 0
 
 # Number of increments per thread
-INCREMENTS = 1_000_000
+INCREMENTS = 5000
 THREADS = 4
 
 
@@ -13,7 +14,10 @@ THREADS = 4
 def increment_without_lock():
     global counter
     for _ in range(INCREMENTS):
-        counter += 1
+        temp = counter
+        temp += 1
+        time.sleep(0.000001)  # FORCE context switch
+        counter = temp
 
 
 def run_without_lock():
@@ -47,7 +51,9 @@ def increment_with_lock():
     global counter
     for _ in range(INCREMENTS):
         with lock:
-            counter += 1
+            temp = counter
+            temp += 1
+            counter = temp
 
 
 def run_with_lock():
