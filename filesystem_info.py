@@ -1,28 +1,30 @@
 import os
 import stat
 
-# Demande du chemin du dossier
+# Ask directory path
 directory = input("Enter directory path: ")
 
-# Vérifie que le dossier existe
+# Verify that the folder exist
 if not os.path.isdir(directory):
     print("Invalid directory path.")
     exit()
 
 print(f"\nFiles in {directory}:\n")
 
-# Parcours du dossier
+# Iterate through all entries in the directory
 for file_name in os.listdir(directory):
     file_path = os.path.join(directory, file_name)
 
-    # Ignore les sous-dossiers
+    # Process only files and ignore subdirectories
     if os.path.isfile(file_path):
 
-        # Récupération des informations
+        # Retrieve file information
         file_stats = os.stat(file_path)
+        
+        # Get the file size in bytes
         file_size = file_stats.st_size
 
-        # Permissions
+        # Check file permissions
         permissions = ""
         permissions += "r" if os.access(file_path, os.R_OK) else "-"
         permissions += "w" if os.access(file_path, os.W_OK) else "-"
